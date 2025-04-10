@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     ---shadowOne: #0fca73;
     ---shadowTwo: #75fa69;
@@ -9,13 +14,13 @@
     src: url(./fonts/SyneMono-Regular.ttf);
 }
 
-body {
+html {
     background: #111010;
     color: #e4e4e4;
-    padding: 1em;
     font-family: SyneMono-Regular, monospace;
     font-size: 1em;
     line-height: 1;
+    padding: 1em;
     text-shadow: 0.06rem 0 0.06rem var(---shadowOne), -0.125rem 0 0.06rem var(-shadowTwo);
     letter-spacing: 0.125em;
     animation-duration: 0.01s;
@@ -24,13 +29,29 @@ body {
     animation-direction: alternate;
 }
 
+
 p::before {
     color: var(---shadowOne);
     content: "wardpearce@localhost: ";
 }
 
+p {
+    margin-top: 1em;
+}
+
+pre {
+    margin-top: .3em;
+}
+
 a {
     color: white;
+}
+
+pre.ascii {
+    font-family: 'Courier New', Courier, 'Lucida Console', monospace !important;
+    white-space: pre;
+    line-height: 1.2;
+    letter-spacing: 0;
 }
 
 @keyframes textflicker {
@@ -40,5 +61,11 @@ a {
 
     to {
         text-shadow: 2px 0.5px 2px var(---shadowOne), -1px -0.5px 2px var(---shadowTwo);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    html {
+        padding: .5em;
     }
 }

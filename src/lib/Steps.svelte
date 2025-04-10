@@ -8,7 +8,7 @@
 
 {#if props.step.state !== "hidden"}
     {#if props.step.typeOut}
-        <Typewriter cursor={true} interval={20}>
+        <Typewriter cursor={true} interval={15}>
             {@html props.step.tag.replaceAll("{content}", props.step.value)}
         </Typewriter>
     {:else}

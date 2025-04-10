@@ -52,7 +52,7 @@
                 output: {
                     value: await (await fetch(`/${welcomeFile}`)).text(),
                     state: "hidden",
-                    tag: "<pre>{content}</pre>",
+                    tag: '<pre class="ascii">{content}</pre>',
                 },
             },
             {
@@ -67,7 +67,18 @@
                 },
             },
             {
-                value: `echo "Give command to delete tmp files" | openai complete - | xargs -I {} sudo sh -c '{}'`,
+                value: 'echo "d2FyZHBlYXJjZUBwbS5tZQ==" | base64 --decode',
+                state: "hidden",
+                tag: "<p>{content}</p>",
+                typeOut: true,
+                output: {
+                    value: '<a href="mailto:wardpearce@pm.me">wardpearce@pm.me</a>',
+                    state: "hidden",
+                    tag: "<pre>{content}</pre>",
+                },
+            },
+            {
+                value: `sudo mkfs.ext4 /dev/sda1`,
                 state: "hidden",
                 tag: "<p>{content}</p>",
                 typeOut: true,
@@ -96,7 +107,7 @@
             },
         ];
 
-        automaticStepsInterval = setInterval(nextStep, 2000);
+        automaticStepsInterval = setInterval(nextStep, 2300);
     });
 
     onDestroy(() => {
