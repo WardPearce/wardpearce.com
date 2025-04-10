@@ -44,9 +44,7 @@ a {
 }
 
 pre.ascii {
-    font-family: 'Courier New', Courier, 'Lucida Console', monospace !important;
     white-space: pre;
-    line-height: 1.2;
     letter-spacing: 0;
 }
 
