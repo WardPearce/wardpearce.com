@@ -35,12 +35,8 @@ p::before {
     content: "wardpearce@localhost: ";
 }
 
-p {
+p, pre {
     margin-top: 1em;
-}
-
-pre {
-    margin-top: .3em;
 }
 
 a {

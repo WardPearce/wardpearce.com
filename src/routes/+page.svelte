@@ -67,12 +67,12 @@
                 },
             },
             {
-                value: 'echo "d2FyZHBlYXJjZUBwbS5tZQ==" | base64 --decode',
+                value: 'echo "Y29udGFjdCBtZTogd2FyZHBlYXJjZUBwbS5tZQ==" | base64 --decode',
                 state: "hidden",
                 tag: "<p>{content}</p>",
                 typeOut: true,
                 output: {
-                    value: '<a href="mailto:wardpearce@pm.me">wardpearce@pm.me</a>',
+                    value: '<a href="mailto:wardpearce@pm.me">contact me: wardpearce@pm.me</a>',
                     state: "hidden",
                     tag: "<pre>{content}</pre>",
                 },
