@@ -1,0 +1,44 @@
+:root {
+    ---shadowOne: #0fca73;
+    ---shadowTwo: #75fa69;
+    --cursor-color: var(---shadowOne);
+}
+
+@font-face {
+    font-family: 'SyneMono-Regular';
+    src: url(./fonts/SyneMono-Regular.ttf);
+}
+
+body {
+    background: #111010;
+    color: #e4e4e4;
+    padding: 1em;
+    font-family: SyneMono-Regular, monospace;
+    font-size: 1em;
+    line-height: 1;
+    text-shadow: 0.06rem 0 0.06rem var(---shadowOne), -0.125rem 0 0.06rem var(-shadowTwo);
+    letter-spacing: 0.125em;
+    animation-duration: 0.01s;
+    animation-name: textflicker;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+p::before {
+    color: var(---shadowOne);
+    content: "wardpearce@localhost: ";
+}
+
+a {
+    color: white;
+}
+
+@keyframes textflicker {
+    from {
+        text-shadow: 1px 0 0 var(---shadowOne), -2px 0 0 var(---shadowTwo);
+    }
+
+    to {
+        text-shadow: 2px 0.5px 2px var(---shadowOne), -1px -0.5px 2px var(---shadowTwo);
+    }
+}
