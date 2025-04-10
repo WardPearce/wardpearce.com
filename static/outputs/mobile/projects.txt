@@ -1,4 +1,4 @@
-+---------+-----------------------------+
++-----+---------------------------------+
 |name |<a href="https://github.com/WardPearce/paaster" target="_blank">Paaster</a>                          |
 ------+---------------------------------+
 |desc |Pastebin app focusing on privacy.|
