@@ -29,13 +29,17 @@ html {
     animation-direction: alternate;
 }
 
+img {
+    animation: imageFlicker 5s infinite;
+    image-rendering: pixelated;
+}
 
 p::before {
     color: var(---shadowOne);
     content: "wardpearce@localhost: ";
 }
 
-p, pre {
+p, pre, img {
     margin-top: 1em;
 }
 
@@ -55,6 +59,38 @@ pre.ascii {
 
     to {
         text-shadow: 2px 0.5px 2px var(---shadowOne), -1px -0.5px 2px var(---shadowTwo);
+    }
+}
+
+@keyframes imageFlicker {
+    0% {
+        filter: grayscale(1) brightness(0.9) contrast(150%) sepia(1) hue-rotate(90deg) saturate(400%);
+        opacity: 1;
+    }
+
+    20% {
+        filter: grayscale(1) brightness(0.85) contrast(180%) sepia(1) hue-rotate(90deg) saturate(500%);
+        opacity: 0.9;
+    }
+
+    40% {
+        filter: grayscale(1) brightness(1) contrast(130%) sepia(1) hue-rotate(90deg) saturate(600%);
+        opacity: 1;
+    }
+
+    60% {
+        filter: grayscale(1) brightness(0.8) contrast(160%) sepia(1) hue-rotate(90deg) saturate(400%);
+        opacity: 0.8;
+    }
+
+    80% {
+        filter: grayscale(1) brightness(0.9) contrast(150%) sepia(1) hue-rotate(90deg) saturate(450%);
+        opacity: 0.95;
+    }
+
+    100% {
+        filter: grayscale(1) brightness(0.9) contrast(150%) sepia(1) hue-rotate(90deg) saturate(400%);
+        opacity: 1;
     }
 }
 

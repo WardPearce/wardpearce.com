@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Step } from "$lib/models";
     import Steps from "$lib/Steps.svelte";
-    import { onDestroy, onMount } from "svelte";
+    import { onDestroy, onMount, tick } from "svelte";
 
     let steps: Step[] = $state([]);
     let currentStep = 0;
@@ -33,6 +33,10 @@
             }
             showingOutput = false;
         }
+
+        tick().then(() => {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
     }
 
     onMount(async () => {
@@ -78,32 +82,130 @@
                 },
             },
             {
-                value: `sudo mkfs.ext4 /dev/sda1`,
-                state: "hidden",
-                tag: "<p>{content}</p>",
-                typeOut: true,
-            },
-            {
-                value: "ll /",
+                value: 'dig <a href="https://app.materialio.us" target="_blank">app.materialio.us</a>',
                 state: "hidden",
                 tag: "<p>{content}</p>",
                 typeOut: true,
                 output: {
-                    value: "total 0",
+                    value: `; <<>> DiG 9.20.7 <<>> app.materialio.us
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4891
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 2568f5e2a523ab040100000067f7bef7889aa52e5193698b (good)
+;; QUESTION SECTION:
+;app.materialio.us.		IN	A
+
+;; ANSWER SECTION:
+app.materialio.us.	1582	IN	A	114.23.117.29
+
+;; Query time: 3 msec
+;; SERVER: 192.168.1.20#53(192.168.1.20) (UDP)
+;; WHEN: Fri Apr 11 00:52:07 NZST 2025
+;; MSG SIZE  rcvd: 9`,
                     state: "hidden",
                     tag: "<pre>{content}</pre>",
                 },
             },
             {
-                value: "screw my life",
+                value: 'dig <a href="https://paaster.io" target="_blank">paaster.io</a>',
                 state: "hidden",
                 tag: "<p>{content}</p>",
                 typeOut: true,
                 output: {
-                    value: " screw: command not found",
+                    value: `; <<>> DiG 9.20.7 <<>> paaster.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 8338
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: c9af8039db2bf94d0100000067f7bf6b3fa03473e5676c1a (good)
+;; QUESTION SECTION:
+;paaster.io.			IN	A
+
+;; ANSWER SECTION:
+paaster.io.		600	IN	A	114.23.117.29
+
+;; Query time: 24 msec
+;; SERVER: 192.168.1.20#53(192.168.1.20) (UDP)
+;; WHEN: Fri Apr 11 00:54:03 NZST 2025
+;; MSG SIZE  rcvd: 83`,
                     state: "hidden",
                     tag: "<pre>{content}</pre>",
                 },
+            },
+            {
+                value: "tree /mnt/media",
+                state: "hidden",
+                tag: "<p>{content}</p>",
+                typeOut: true,
+                output: {
+                    value: `/mnt/media
+├── movies/
+│   ├── action/
+│   │   ├── hot_fuzz.mp4
+│   │   ├── dark_knight.mp4
+│   │   └── they_live.mp4
+│   ├── comedy/
+│   │   ├── beetlejuice.mp4
+│   │   ├── what_we_do_in_the_shadows.mp4
+│   │   └── grand_budapest_hotel.mp4
+│   ├── horror/
+│   │   ├── the_thing.mp4
+│   │   ├── the_fly.mp4
+│   │   ├── alien_romulus.mp4
+│   │   └── alien_legacy/
+│   │       ├── alien.mp4
+│   │       ├── aliens.mp4
+│   ├── surreal/
+│   │   ├── poor_things.mp4
+│   │   └── isle_of_dogs.mp4
+│   └── indie/
+│       └── darjeeling_limited.mp4
+├── tv_shows/
+│   ├── comedy/
+│   │   ├── spaced/
+│   │   ├── new_zealand_today/
+│   │   └── task_master/
+│   ├── drama/
+│   │   ├── barry/
+│   │   ├── breaking_bad/
+│   │   ├── mr_robot/
+│   │   └── walking_dead/
+│   ├── sci_fantasy/
+│   │   ├── time_bandits/
+│   │   └── stargate_sg1/
+│   │   └── star_trek_voyager/
+│   │   └── stargate_atlas/
+│   └── fantasy_quirky/
+│       ├── good_omens/
+│       └── our_flag_means_death/
+`,
+                    state: "hidden",
+                    tag: "<pre>{content}</pre>",
+                },
+            },
+            {
+                value: "imgcat $HOME/Pictures/MarsAndLunar.png",
+                state: "hidden",
+                tag: "<p>{content}</p>",
+                typeOut: true,
+                output: {
+                    value: "",
+                    state: "hidden",
+                    tag: '<img src="/MarsAndLunar.png" width="200px" alt="My cats Mars and Lunar" >',
+                },
+            },
+            {
+                value: `shutdown now`,
+                state: "hidden",
+                tag: "<p>{content}</p>",
+                typeOut: true,
             },
         ];
 
