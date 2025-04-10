@@ -9,6 +9,8 @@
 
     let automaticStepsInterval: number | undefined;
 
+    let isMobile = false;
+
     function nextStep() {
         if (currentStep >= steps.length) {
             clearInterval(automaticStepsInterval);
@@ -34,25 +36,32 @@
     }
 
     onMount(async () => {
+        if (document.documentElement.clientWidth <= 1200) {
+            isMobile = true;
+        }
+
+        const welcomeFile = `outputs/${isMobile ? "mobile/" : ""}welcome.txt`;
+        const projectsFile = `outputs/${isMobile ? "mobile/" : ""}projects.txt`;
+
         steps = [
             {
-                value: `curl ${document.location.href}outputs/welcome.txt`,
+                value: `curl ${document.location.href}${welcomeFile}`,
                 state: "current",
                 tag: "<p>{content}</p>",
                 typeOut: true,
                 output: {
-                    value: await (await fetch("/outputs/welcome.txt")).text(),
+                    value: await (await fetch(`/${welcomeFile}`)).text(),
                     state: "hidden",
                     tag: "<pre>{content}</pre>",
                 },
             },
             {
-                value: `curl ${document.location.href}outputs/projects.txt`,
+                value: `curl ${document.location.href}${projectsFile}`,
                 state: "hidden",
                 tag: "<p>{content}</p>",
                 typeOut: true,
                 output: {
-                    value: await (await fetch("/outputs/projects.txt")).text(),
+                    value: await (await fetch(`/${projectsFile}`)).text(),
                     state: "hidden",
                     tag: "<pre>{content}</pre>",
                 },

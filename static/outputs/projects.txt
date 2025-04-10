@@ -1,7 +1,7 @@
-+--------------+-----------------------------------------------------------------------------------------------------+----------------------------------------------+
-| name         | desc                                                                                                | link                                         |
-+--------------+-----------------------------------------------------------------------------------------------------+----------------------------------------------+
-| Paaster      | Paaster is a secure and user-friendly pastebin application that prioritizes privacy and simplicity. | <a href="https://github.com/WardPearce/paaster" target="_blank">https://github.com/WardPearce/paaster</a>        |
-| Materialious | Modern material design for Invidious.                                                               | <a href="https://github.com/Materialious/Materialious" target="_blank">https://github.com/Materialious/Materialious</a> |
-| uploadly     | work-in-progress sshhhh                                                                             |                                              |
-+--------------+-----------------------------------------------------------------------------------------------------+----------------------------------------------+
++--------------+---------------------------------------------------------------+----------------------------------------------+
+| name         | desc                                                          | link                                         |
++--------------+--------------------------------------- -----------------------+----------------------------------------------+
+| Paaster      | Pastebin application that prioritizes privacy and simplicity. | <a href="https://github.com/WardPearce/paaster" target="_blank">https://github.com/WardPearce/paaster</a>        |
+| Materialious | Modern material design for Invidious.                         | <a href="https://github.com/Materialious/Materialious" target="_blank">https://github.com/Materialious/Materialious</a> |
+| uploadly     | work-in-progress sshhhh                                       |                                              |
++--------------+---------------------------------------------------------------+----------------------------------------------+
