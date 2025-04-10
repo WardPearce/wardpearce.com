@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { Step } from "$lib/models";
     import Steps from "$lib/Steps.svelte";
-    import { onDestroy, onMount, tick } from "svelte";
+    import { onDestroy, onMount } from "svelte";
 
     let steps: Step[] = $state([]);
     let currentStep = 0;
@@ -34,9 +34,7 @@
             showingOutput = false;
         }
 
-        tick().then(() => {
-            window.scrollTo(0, document.body.scrollHeight);
-        });
+        window.scrollTo(0, document.body.scrollHeight);
     }
 
     onMount(async () => {
@@ -90,20 +88,15 @@
                     value: `; <<>> DiG 9.20.7 <<>> app.materialio.us
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4891
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; ->>HEADER<<- opcode: QUERY
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 2568f5e2a523ab040100000067f7bef7889aa52e5193698b (good)
 ;; QUESTION SECTION:
 ;app.materialio.us.		IN	A
 
-;; ANSWER SECTION:
-app.materialio.us.	1582	IN	A	114.23.117.29
-
 ;; Query time: 3 msec
-;; SERVER: 192.168.1.20#53(192.168.1.20) (UDP)
 ;; WHEN: Fri Apr 11 00:52:07 NZST 2025
 ;; MSG SIZE  rcvd: 9`,
                     state: "hidden",
@@ -119,21 +112,16 @@ app.materialio.us.	1582	IN	A	114.23.117.29
                     value: `; <<>> DiG 9.20.7 <<>> paaster.io
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 8338
-;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; ->>HEADER<<- opcode: QUERY
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: c9af8039db2bf94d0100000067f7bf6b3fa03473e5676c1a (good)
 ;; QUESTION SECTION:
 ;paaster.io.			IN	A
 
-;; ANSWER SECTION:
-paaster.io.		600	IN	A	114.23.117.29
 
 ;; Query time: 24 msec
-;; SERVER: 192.168.1.20#53(192.168.1.20) (UDP)
-;; WHEN: Fri Apr 11 00:54:03 NZST 2025
 ;; MSG SIZE  rcvd: 83`,
                     state: "hidden",
                     tag: "<pre>{content}</pre>",
