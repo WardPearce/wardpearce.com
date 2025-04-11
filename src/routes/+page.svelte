@@ -74,7 +74,7 @@
                 tag: "<p>{content}</p>",
                 typeOut: true,
                 output: {
-                    value: 'contact me: <a href="mailto:wardpearce@pm.me">wardpearce@pm.me</a>',
+                    value: 'email: <a href="mailto:wardpearce@pm.me">wardpearce@pm.me</a>',
                     state: "hidden",
                     tag: "<pre>{content}</pre>",
                 },
