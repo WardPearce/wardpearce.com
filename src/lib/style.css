@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'SyneMono-Regular';
-    src: url(./fonts/SyneMono-Regular.ttf);
+    src: url(/fonts/SyneMono-Regular.ttf);
 }
 
 html {
